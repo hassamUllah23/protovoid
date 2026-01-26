@@ -1,3 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+/* Set Geist Mono as the default font for the entire application */
+/* * {
+  font-family: var(--font-secondary), monospace;
+} */
+* {
+  font-family: 'secondary', monospace;
+}
