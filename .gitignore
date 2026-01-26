@@ -42,3 +42,11 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# project files
+*.code-workspace
+.env
+.env.dev
+.env.prod
+package-lock.json
+yarn.lock
