@@ -1,0 +1,10 @@
+<div class="flex justify-between items-center">
+  <div><base-text variant="h5" classes="uppercase tracking-wider" text="PROTOVOID" /></div>
+  <div class="flex gap-8 items-center">
+    @for (item of items; track $index) {
+      <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase"/>
+    }
+    <base-button label="Contact Sales"/>
+  </div>
+</div>
+<base-separator />

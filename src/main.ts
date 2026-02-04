@@ -1,6 +1,6 @@
 console.log({ theme: Defaults.theme })
 document.documentElement.setAttribute(
-  'data-theme', 'light');
+  'data-theme', 'dark');
 
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';

@@ -2,5 +2,5 @@
 import { Themes } from "./constants";
 
 export const Defaults = {
-    theme: Themes.light,
+    theme: Themes.dark,
 }

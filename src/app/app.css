@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+@import "tailwindcss";
 
 :root {
   --font-geist-sans: 'Geist', sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
+}
+
+/* Set Geist Mono as the default font for the entire application */
+/* * {
+  font-family: var(--font-secondary), monospace;
+} */
+* {
+  font-family: 'secondary', monospace;
+  font-stretch: condensed;
+}
+
+:root {
+  --color-primary: #f97316;
+  --color-secondary: #000000;
+  --color-tertiary: #1f2937;
+}
+
+[data-theme="dark"] {
+  --color-primary: #f97316;
+  --color-secondary: #ffffff;
+  --color-tertiary: #9ca3af;
 }

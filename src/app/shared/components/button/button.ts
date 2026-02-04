@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseComponent } from '@utils/interfaces';
+import { Text } from '@shared/components/text/text';
 
 @Component({
   selector: 'base-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Text],
   templateUrl: './button.html',
 })
 export class Button implements BaseComponent {
@@ -35,8 +36,8 @@ export class Button implements BaseComponent {
       'inline-flex',
       'items-center',
       'justify-center',
-      'px-4',
-      'py-2',
+      'px-2.5',
+      'py-0.5',
       'text-sm',
       'font-medium',
       'rounded-lg',
@@ -48,25 +49,28 @@ export class Button implements BaseComponent {
       'disabled:opacity-50',
       'disabled:cursor-not-allowed',
       'shadow-sm',
-      'text-white',
+      'text-secondary',
+      'uppercase',
+      'tracking-tight',
     ];
 
     const variantClasses = {
       primary: [
-        'bg-blue-600',
-        'hover:bg-blue-700',
-        'focus:ring-blue-500',
+        'bg-primary',
+        // 'hover:bg-blue-700',
+        // 'focus:ring-blue-500',
 
       ],
       secondary: [
-        'bg-gray-600',
-        'hover:bg-gray-700',
-        'focus:ring-gray-500',
+        'bg-secondary',
+        // 'hover:bg-gray-700',
+        // 'focus:ring-gray-500',
       ],
       danger: [
-        'bg-red-600',
-        'hover:bg-red-700',
-        'focus:ring-red-500',
+        'bg-tertiary'
+        // 'bg-red-600',
+        // 'hover:bg-red-700',
+        // 'focus:ring-red-500',
       ]
     };
 

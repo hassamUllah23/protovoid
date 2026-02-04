@@ -13,8 +13,7 @@
           "inlineStyle": true,
           "export": true,
           "skipTests": true,
-          "style": "none",
-          "prefix": "base"
+          "style": "none"
         }
       },
       "root": "",
