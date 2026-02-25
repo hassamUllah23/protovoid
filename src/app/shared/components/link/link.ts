@@ -8,7 +8,34 @@ type LinkVariant = 'primary' | 'secondary' | 'tertiary';
   selector: 'base-link',
   imports: [],
   templateUrl: './link.html',
-  styles: ``,
+  styles: `
+    a {
+      position: relative;
+      display: inline-block;
+    }
+
+    span {
+      position: relative;
+      display: inline-block;
+    }
+
+    span::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    a:hover span::after {
+      transform: scaleX(1);
+    }
+  `,
 })
 export class Link implements BaseComponent {
   @Input() url = '';
@@ -26,24 +53,11 @@ export class Link implements BaseComponent {
   }
 
   getClasses(): string {
-    const variantColorClasses: Record<LinkVariant, string[]> = {
-      primary: ['text-primary'],
-      secondary: ['text-secondary'],
-      tertiary: ['text-tertiary'],
-    };
-
     return [
-      'text-primary'
-      // ...(variantColorClasses[this.variant]),
-      // ...[,
-      // ],
-      // ...['hover:text-primary',
-      //   'hover:underline'
-      // ],
-      // 'transition-colors',
-      // ...(this.animate ? ['duration-200',
-      //   'ease-in-out', 'hover:animate-'] : []),
-      // ...(this.disabled ? ['pointer-events-none', 'opacity-50'] : []),
+      'text-primary',
+      'transition-all',
+      'duration-200',
+      'ease-in-out'
     ].join(' ');
   }
 }

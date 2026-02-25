@@ -11,6 +11,7 @@ import { Landing } from '../landing/landing';
 })
 export class Navigation {
   items: NavItem[] = [];
+  hoveredIndex: number | null = null;
 
   constructor() {
     this.items = [
@@ -22,5 +23,20 @@ export class Navigation {
       { url: '/contact', label: 'Pricing' },
       { url: '/contact', label: 'Career' },
     ];
+  }
+
+  onNavItemHover(index: number): void {
+    this.hoveredIndex = index;
+  }
+
+  onNavItemLeave(): void {
+    this.hoveredIndex = null;
+  }
+
+  getNavItemClasses(index: number): string {
+    if (this.hoveredIndex !== null && this.hoveredIndex !== index) {
+      return 'opacity-50 transition-opacity duration-200';
+    }
+    return 'transition-opacity duration-200';
   }
 }
