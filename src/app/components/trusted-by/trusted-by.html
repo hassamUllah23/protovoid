@@ -1,0 +1,14 @@
+<section>
+  <div class="label">
+    <base-dot />
+    <p>Trusted by teams at</p>
+  </div>
+
+  <div class="logos">
+    @for (svg of trustedBySvgs; track $index) {
+      <div class="logo-item">
+        <img [src]="svg" alt="trusted company logo" loading="lazy" />
+      </div>
+    }
+  </div>
+</section>

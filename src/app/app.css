@@ -4,25 +4,46 @@
 :root {
   --font-geist-sans: 'Geist', sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
-}
 
-/* Set Geist Mono as the default font for the entire application */
-/* * {
-  font-family: var(--font-secondary), monospace;
-} */
-* {
-  font-family: 'secondary', monospace;
-  font-stretch: condensed;
-}
-
-:root {
+  /* Light mode colors */
   --color-primary: #f97316;
+  --color-primary-rgb: 249, 115, 22;
   --color-secondary: #000000;
+  --color-secondary-rgb: 0, 0, 0;
   --color-tertiary: #1f2937;
+  --color-tertiary-rgb: 31, 41, 55;
+  --color-bg: #ffffff;
+}
+
+[data-theme="dark"],
+[data-theme="dark"] * {
+  /* Dark mode colors */
+  --color-primary: #f97316;
+  --color-primary-rgb: 249, 115, 22;
+  --color-secondary: #ffffff;
+  --color-secondary-rgb: 255, 255, 255;
+  --color-tertiary: #9ca3af;
+  --color-tertiary-rgb: 156, 163, 175;
+  --color-bg: #000000;
+}
+
+html {
+  color-scheme: light;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease-in-out;
 }
 
 [data-theme="dark"] {
-  --color-primary: #f97316;
-  --color-secondary: #ffffff;
-  --color-tertiary: #9ca3af;
+  color-scheme: dark;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease-in-out;
+}
+
+* {
+  font-family: 'secondary', monospace;
+  font-stretch: condensed;
 }

@@ -1,0 +1,28 @@
+<div class="terminal-container">
+  <div class="terminal-header">
+    <div class="platform-tabs">
+      @for (platform of platforms; track platform) {
+        <button
+          class="platform-tab"
+          [class.active]="activePlatform === platform"
+          (click)="activePlatform = platform">
+          {{ platform }}
+        </button>
+      }
+      @if (showComingSoon) {
+        <button class="platform-tab disabled-tab" disabled>
+          WINDOWS
+        </button>
+      }
+    </div>
+  </div>
+  <div class="terminal-content">
+    <div class="command-line">
+      <span class="prompt">&gt;</span>
+      <span class="command">{{ command }}</span>
+      <button class="copy-button" (click)="copyToClipboard()" title="Copy to clipboard">
+        Copy
+      </button>
+    </div>
+  </div>
+</div>

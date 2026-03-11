@@ -9,6 +9,16 @@
         <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase"/>
       </div>
     }
+    <button
+      (click)="toggleTheme()"
+      class="p-2 rounded-lg transition-colors duration-200 hover:bg-tertiary/20"
+      [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+      @if (isDarkMode()) {
+        <ng-icon name="octMoon" class="w-5 h-5 text-primary" />
+      } @else {
+        <ng-icon name="octSun" class="w-5 h-5 text-primary" />
+      }
+    </button>
     <base-button label="Contact Sales"/>
   </div>
 </div>

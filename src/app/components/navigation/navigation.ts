@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavItem } from './nav-item/nav-item';
 import { Text, Button, Separator } from "@shared";
-import { Landing } from '../landing/landing';
+import { ThemeService } from '../../services/theme.service';
+import { NgIconsModule } from '@ng-icons/core';
 
 @Component({
   selector: 'app-navigation',
-  imports: [NavItem, Text, Button, Separator],
+  imports: [NavItem, Text, Button, Separator, NgIconsModule],
   templateUrl: './navigation.html',
   styles: ``,
 })
 export class Navigation {
+  private themeService = inject(ThemeService);
+  
   items: NavItem[] = [];
   hoveredIndex: number | null = null;
+  isDarkMode = this.themeService.isDarkMode;
 
   constructor() {
     this.items = [
@@ -38,5 +42,9 @@ export class Navigation {
       return 'opacity-50 transition-opacity duration-200';
     }
     return 'transition-opacity duration-200';
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 }

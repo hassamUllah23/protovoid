@@ -1,1 +1,89 @@
-<p>footer works!</p>
+<footer class="bg-secondary text-primary px-6 py-12 border border-tertiary rounded-xl mx-6 my-6" style="background-color: rgba(var(--color-secondary-rgb), 0.05);">
+  <div class="px-8">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-12 mb-12">
+      <!-- Left Section (60%) - Logo -->
+      <div class="flex-1 flex flex-col items-start">
+        <div class="w-12 h-12 rounded-lg border border-tertiary/30 flex items-center justify-center">
+          <span class="text-primary font-bold text-lg">◆</span>
+        </div>
+      </div>
+
+      <!-- Right Section (40%) - Sitemap -->
+      <div class="w-full md:w-2/5">
+        <div class="grid grid-cols-3 gap-8">
+          <!-- Resources Column -->
+          <div class="space-y-3">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-primary">Resources</h3>
+            <ul class="space-y-2">
+              <li><base-link url="#" label="News" /></li>
+              <li><base-link url="#" label="Docs" /></li>
+              <li><base-link url="#" label="Contact Sales" /></li>
+              <li><base-link url="#" label="Open Source" /></li>
+              <li><base-link url="#" label="Factory for Science" /></li>
+            </ul>
+          </div>
+
+          <!-- Company Column -->
+          <div class="space-y-3">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-primary">Company</h3>
+            <ul class="space-y-2">
+              <li><base-link url="#" label="Careers" /></li>
+              <li><base-link url="#" label="Enterprise" /></li>
+              <li><base-link url="#" label="Security" /></li>
+            </ul>
+          </div>
+
+          <!-- Legal Column -->
+          <div class="space-y-3">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-primary">Legal</h3>
+            <ul class="space-y-2">
+              <li><base-link url="#" label="Policy" /></li>
+              <li><base-link url="#" label="Privacy Policy" /></li>
+              <li><base-link url="#" label="Terms of Service" /></li>
+              <li><base-link url="#" label="SLA" /></li>
+              <li><base-link url="#" label="DPA" /></li>
+              <li><base-link url="#" label="BAA" /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BotradixLinkedinLogotom Section -->
+    <div class="border-t border-tertiary/30 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <!-- Theme Toggle and Copy -->
+      <div class="flex items-center gap-4">
+        <button
+          (click)="toggleTheme()"
+          class="flex items-center gap-2 px-3 py-1.5 rounded border border-tertiary/50 text-tertiary hover:text-primary hover:border-primary transition-colors text-sm"
+          [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+          @if (isDarkMode()) {
+            <ng-icon name="octMoon" class="w-4 h-4" />
+          } @else {
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6m-16.78 7.78l4.24-4.24m3.08-3.08l4.24-4.24"/>
+            </svg>
+          }
+          <span class="uppercase text-xs tracking-wider font-semibold">System</span>
+        </button>
+      </div>
+
+      <!-- Social Links and Copyright -->
+      <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-tertiary hover:text-primary transition-colors" title="X (Twitter)">
+            <ng-icon name="radixTwitterLogo" class="w-5 h-5" />
+          </a>
+          <a href="#" class="text-tertiary hover:text-primary transition-colors" title="LinkedIn">
+            <ng-icon name="radixLinkedinLogo" class="w-5 h-5" />
+          </a>
+          <a href="#" class="text-tertiary hover:text-primary transition-colors" title="GitHub">
+            <ng-icon name="radixGithubLogo" class="w-5 h-5" />
+          </a>
+        </div>
+        <p class="text-tertiary text-sm">© Factory 2026. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

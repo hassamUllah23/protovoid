@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+p {
+  color: rgb(var(--color-tertiary-rgb));
+  transition: color 0.3s ease-in-out;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 3rem;
+  gap: 2rem;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo-item:hover {
+  opacity: 1;
+}
+
+.logo-item img {
+  max-height: 24px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0);
+  transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+:host-context([data-theme="dark"]) .logo-item img {
+  filter: brightness(0) invert(1);
+}

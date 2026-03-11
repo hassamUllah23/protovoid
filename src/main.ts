@@ -1,3 +1,6 @@
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+
 console.log({ theme: Defaults.theme })
 document.documentElement.setAttribute(
   'data-theme', 'dark');
