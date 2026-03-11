@@ -25,7 +25,7 @@ export class Navigation {
       { url: '/about', label: 'About' },
       // { url: '/contact', label: 'Contact' },
       { url: '/contact', label: 'Pricing' },
-      { url: '/contact', label: 'Career' },
+      { url: '/careers', label: 'Career' },
     ];
   }
 

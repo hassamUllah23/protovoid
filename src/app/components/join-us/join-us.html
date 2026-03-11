@@ -1,0 +1,29 @@
+<section class="py-16">
+    <div class="mb-8">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Job Openings</span>
+        </div>
+        <h2 class="text-4xl font-bold text-secondary">Join us</h2>
+    </div>
+    
+    <div class="mb-8">
+        <app-job-filter 
+            [activeFilter]="activeFilter()"
+            [activeLocation]="activeLocation()"
+            [locations]="locations"
+            (filterChange)="onFilterChange($event)"
+            (locationChange)="onLocationChange($event)"
+        />
+    </div>
+    
+    <div class="border-t border-tertiary/20">
+        @for (job of filteredJobs(); track job.id) {
+            <app-job-card [job]="job" />
+        } @empty {
+            <div class="py-12 text-center text-tertiary">
+                <p>No job openings match your current filters.</p>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,121 @@
+@if (job(); as jobData) {
+    <div class="max-w-6xl mx-auto py-8">
+        <a 
+            routerLink="/careers" 
+            class="inline-flex items-center gap-2 text-tertiary hover:text-secondary transition-colors mb-6"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span class="text-sm uppercase tracking-wide">Back to Careers</span>
+        </a>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
+            <aside class="space-y-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-secondary mb-4">{{ jobData.title }}</h1>
+                    <a 
+                        href="#"
+                        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-bg bg-secondary rounded hover:bg-secondary/90 transition-colors"
+                    >
+                        Apply Now
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Location</h3>
+                        <p class="text-secondary">{{ jobData.location }}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Type</h3>
+                        <p class="text-secondary">{{ formatType(jobData.type) }}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Tags</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            @for (tag of jobData.tags; track tag) {
+                                <span [class]="getTagClasses(tag)">{{ tag }}</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-tertiary/20 pt-6">
+                    <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-3">Table of Contents</h3>
+                    <nav class="space-y-2">
+                        <button 
+                            (click)="scrollTo('responsibilities')"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors"
+                        >
+                            01 Responsibilities
+                        </button>
+                        <button 
+                            (click)="scrollTo('qualifications')"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors"
+                        >
+                            02 Qualifications
+                        </button>
+                    </nav>
+                </div>
+            </aside>
+            
+            <main class="space-y-12">
+                <section id="responsibilities">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        <h2 class="text-2xl font-bold text-secondary">Responsibilities</h2>
+                    </div>
+                    
+                    <p class="text-tertiary mb-6">{{ jobData.description }}</p>
+                    
+                    <h3 class="text-lg font-semibold text-secondary mb-4">What you will do and achieve:</h3>
+                    
+                    <ul class="space-y-3">
+                        @for (item of jobData.responsibilities; track $index) {
+                            <li class="flex gap-3 text-tertiary">
+                                <span class="text-primary mt-1.5">•</span>
+                                <span>{{ item }}</span>
+                            </li>
+                        }
+                    </ul>
+                </section>
+                
+                <section id="qualifications">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        <h2 class="text-2xl font-bold text-secondary">Qualifications</h2>
+                    </div>
+                    
+                    <ul class="space-y-3">
+                        @for (item of jobData.qualifications; track $index) {
+                            <li class="flex gap-3 text-tertiary">
+                                <span class="text-primary mt-1.5">•</span>
+                                <span>{{ item }}</span>
+                            </li>
+                        }
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+} @else {
+    <div class="max-w-6xl mx-auto py-16 text-center">
+        <h1 class="text-2xl font-bold text-secondary mb-4">Job Not Found</h1>
+        <p class="text-tertiary mb-6">The job you're looking for doesn't exist or has been removed.</p>
+        <a 
+            routerLink="/careers" 
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-bg bg-secondary rounded hover:bg-secondary/90 transition-colors"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Careers
+        </a>
+    </div>
+}

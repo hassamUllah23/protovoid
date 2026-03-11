@@ -1,0 +1,24 @@
+<div class="flex items-center justify-between py-4 border-b border-tertiary/20 hover:bg-secondary/5 transition-colors duration-200 group">
+    <div class="flex items-center gap-6">
+        <div class="flex gap-1.5 min-w-[120px]">
+            @for (tag of job.tags; track tag) {
+                <span [class]="getTagClasses(tag)">{{ tag }}</span>
+            }
+        </div>
+        
+        <div class="flex flex-col gap-0.5">
+            <span class="text-secondary font-medium">{{ job.title }}</span>
+            <span class="text-tertiary text-sm">{{ job.location }} - {{ formatType(job.type) }}</span>
+        </div>
+    </div>
+    
+    <a 
+        [routerLink]="['/careers', job.id]"
+        class="flex items-center gap-2 px-4 py-2 text-xs font-medium uppercase tracking-wide text-secondary bg-secondary/10 border border-secondary/20 rounded hover:bg-secondary hover:text-bg transition-all duration-200"
+    >
+        Apply
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+    </a>
+</div>
