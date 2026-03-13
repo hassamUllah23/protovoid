@@ -2,7 +2,7 @@
     <div class="flex items-center gap-6">
         <div class="flex gap-1.5 min-w-[120px]">
             @for (tag of job.tags; track tag) {
-                <span [class]="getTagClasses(tag)">{{ tag }}</span>
+                <span [class]="getTagClasses()">{{ tag }}</span>
             }
         </div>
         

@@ -7,6 +7,7 @@ export { Dot } from './dot/dot';
 export { ButtonGroup } from './button-group/button-group';
 export { Image } from './image/image';
 export { Link } from './link/link';
+export { Modal } from './modal/modal';
 export { Pill } from './pill/pill';
 export { Separator } from './separator/separator';
 export { Ul } from './ul/ul';

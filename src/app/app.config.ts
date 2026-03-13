@@ -2,7 +2,7 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { octSun, octMoon } from '@ng-icons/octicons';
-import { radixGithubLogo, radixLinkedinLogo, radixTwitterLogo } from '@ng-icons/radix-icons';
+import { radixGithubLogo, radixLinkedinLogo, radixTwitterLogo, radixCross1 } from '@ng-icons/radix-icons';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -20,6 +20,7 @@ export const appConfig: ApplicationConfig = {
       radixGithubLogo,
       radixLinkedinLogo,
       radixTwitterLogo,
+      radixCross1,
     })
   ]
 };

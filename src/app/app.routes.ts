@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
+import { Company } from './pages/company/company';
 import { Career } from './pages/career/career';
 import { JobDetail } from './pages/job-detail/job-detail';
 
@@ -8,6 +9,11 @@ export const routes: Routes = [
         path: '',
         component: Home,
         title: 'Home'
+    },
+    {
+        path: 'company',
+        component: Company,
+        title: 'Company'
     },
     {
         path: 'careers',

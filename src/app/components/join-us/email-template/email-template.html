@@ -1,0 +1,71 @@
+<div class="mb-6">
+    <h3 class="text-sm font-medium uppercase tracking-wider text-tertiary mb-2">How to Apply</h3>
+    <p class="text-secondary">
+        Send your application to 
+        <a [href]="getMailtoLink()" class="text-primary hover:underline font-medium">{{ companyEmail }}</a>
+        with the following information:
+    </p>
+</div>
+
+<div class="mb-6">
+    <h3 class="text-sm font-medium uppercase tracking-wider text-tertiary mb-2">Email Template</h3>
+    <div class="bg-secondary/5 border border-tertiary/20 rounded-lg p-4">
+        <div class="mb-3">
+            <span class="text-xs text-tertiary uppercase tracking-wider">To:</span>
+            <p class="text-secondary font-medium">{{ companyEmail }}</p>
+        </div>
+        <div class="mb-3">
+            <span class="text-xs text-tertiary uppercase tracking-wider">Subject:</span>
+            <p class="text-secondary font-medium">{{ getEmailSubject() }}</p>
+        </div>
+        <div>
+            <span class="text-xs text-tertiary uppercase tracking-wider">Body:</span>
+            <pre class="text-secondary text-sm whitespace-pre-wrap font-sans mt-2 leading-relaxed">{{ getEmailBody() }}</pre>
+        </div>
+    </div>
+</div>
+
+<div class="mb-6">
+    <h3 class="text-sm font-medium uppercase tracking-wider text-tertiary mb-2">Don't forget to attach</h3>
+    <ul class="space-y-2">
+        <li class="flex items-center gap-2 text-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Your resume/CV (PDF preferred)
+        </li>
+        <li class="flex items-center gap-2 text-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Portfolio or work samples (if applicable)
+        </li>
+        <li class="flex items-center gap-2 text-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Cover letter (optional but recommended)
+        </li>
+    </ul>
+</div>
+
+<div class="flex items-center gap-3 pt-6 border-t border-tertiary/20">
+    <a 
+        [href]="getMailtoLink()"
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium uppercase tracking-wide text-bg bg-secondary rounded hover:bg-secondary/90 transition-colors"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Open Email Client
+    </a>
+    <button 
+        (click)="copyEmailTemplate()"
+        class="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium uppercase tracking-wide text-secondary bg-transparent border border-secondary/20 rounded hover:bg-secondary/10 transition-colors"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        Copy Template
+    </button>
+</div>

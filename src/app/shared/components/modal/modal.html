@@ -1,0 +1,31 @@
+@if (isOpen) {
+    <div class="fixed inset-0 z-50 flex items-center justify-center">
+        <div 
+            class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            (click)="onBackdropClick()"
+        ></div>
+        
+        <div [class]="'relative bg-white border border-tertiary/20 rounded-lg shadow-2xl w-full mx-4 max-h-[90vh] overflow-hidden flex flex-col ' + getMaxWidthClass()">
+            <div class="flex items-center justify-between p-6 border-b border-tertiary/20">
+                <div>
+                    <h2 class="text-xl font-bold text-secondary">{{ title }}</h2>
+                    @if (subtitle) {
+                        <p class="text-sm text-tertiary mt-1">{{ subtitle }}</p>
+                    }
+                </div>
+                <button 
+                    (click)="close()"
+                    class="text-tertiary hover:text-secondary transition-colors p-1"
+                >
+                    <ng-icon name="radixCross1" size="24" />
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto flex-1">
+                <ng-content select="[modal-body]"></ng-content>
+            </div>
+            
+            <ng-content select="[modal-footer]"></ng-content>
+        </div>
+    </div>
+}
