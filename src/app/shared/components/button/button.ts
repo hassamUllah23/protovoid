@@ -1,18 +1,17 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseComponent } from '@utils/interfaces';
-import { Text } from '@shared/components/text/text';
 
 @Component({
   selector: 'base-button',
   standalone: true,
-  imports: [CommonModule, Text],
+  imports: [CommonModule],
   templateUrl: './button.html',
 })
 export class Button implements BaseComponent {
   @Input() label = '';
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
-  @Input() variant: 'primary' | 'secondary' | 'danger' = 'secondary';
+  @Input() variant: 'primary' | 'secondary' | 'tertiary' | 'danger' = 'secondary';
   @Input() disabled = false;
   @Input() loading = false;
   @Input() onClick: (() => void) | undefined;
@@ -36,10 +35,11 @@ export class Button implements BaseComponent {
       'inline-flex',
       'items-center',
       'justify-center',
-      'px-2.5',
-      'py-0.5',
+      'px-3',
+      'py-1.5',
       'text-sm',
-      'font-medium',
+      'font-normal',
+      'leading-none',
       'rounded-lg',
       'transition-all',
       'duration-200',
@@ -48,29 +48,28 @@ export class Button implements BaseComponent {
       'focus:ring-offset-2',
       'disabled:opacity-50',
       'disabled:cursor-not-allowed',
-      'shadow-sm',
-      'text-secondary',
       'uppercase',
       'tracking-tight',
     ];
 
     const variantClasses = {
       primary: [
-        'bg-primary',
-        // 'hover:bg-blue-700',
-        // 'focus:ring-blue-500',
-
+        'bg-secondary',
+        'text-[color:var(--color-bg)]',
       ],
       secondary: [
-        'bg-secondary',
-        // 'hover:bg-gray-700',
-        // 'focus:ring-gray-500',
+        'bg-[color:var(--color-bg)]',
+        'text-secondary',
+        'border',
+        'border-secondary/30',
+      ],
+      tertiary: [
+        'bg-tertiary/20',
+        'text-secondary',
       ],
       danger: [
-        'bg-tertiary'
-        // 'bg-red-600',
-        // 'hover:bg-red-700',
-        // 'focus:ring-red-500',
+        'bg-red-600',
+        'text-white',
       ]
     };
 

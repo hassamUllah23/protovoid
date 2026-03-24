@@ -4,11 +4,12 @@ import { JobFilter } from './job-filter/job-filter';
 import { JobCard } from './job-card/job-card';
 import { JOBS, getUniqueLocations } from '../../data/jobs.data';
 import { Job } from '@utils/interfaces';
+import { Text, Dot } from '@shared';
 
 @Component({
     selector: 'app-join-us',
     standalone: true,
-    imports: [CommonModule, JobFilter, JobCard],
+    imports: [CommonModule, JobFilter, JobCard, Text, Dot],
     templateUrl: './join-us.html',
 })
 export class JoinUs {

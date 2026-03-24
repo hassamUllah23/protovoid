@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { NavItem } from './nav-item/nav-item';
-import { Text, Button, Separator } from "@shared";
+import { Text, Button, IconButton, Separator } from "@shared";
 import { ThemeService } from '../../services/theme.service';
 import { NgIconsModule } from '@ng-icons/core';
 
 @Component({
   selector: 'app-navigation',
-  imports: [NavItem, Text, Button, Separator, NgIconsModule],
+  imports: [NavItem, Text, Button, IconButton, Separator, NgIconsModule, RouterLink],
   templateUrl: './navigation.html',
   styles: ``,
 })
@@ -24,7 +25,7 @@ export class Navigation {
       { url: '/contact', label: 'Products' },
       { url: '/about', label: 'About' },
       // { url: '/contact', label: 'Contact' },
-      { url: '/contact', label: 'Pricing' },
+      { url: '/pricing', label: 'Pricing' },
       { url: '/company', label: 'Company' },
       { url: '/careers', label: 'Careers' },
     ];

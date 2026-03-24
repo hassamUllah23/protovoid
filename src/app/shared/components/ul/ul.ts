@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'base-ul',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './ul.html',
-  styles: ``,
 })
 export class Ul {
-
+  @Input() items: string[] = [];
+  @Input() textClass: string = 'text-tertiary';
+  @Input() markerClass: string = 'marker:text-tertiary';
 }

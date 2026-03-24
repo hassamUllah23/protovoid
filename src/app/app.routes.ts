@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Company } from './pages/company/company';
 import { Career } from './pages/career/career';
 import { JobDetail } from './pages/job-detail/job-detail';
+import { PricingPage } from './pages/pricing/pricing';
 
 export const routes: Routes = [
     {
@@ -24,5 +25,10 @@ export const routes: Routes = [
         path: 'careers/:id',
         component: JobDetail,
         title: 'Job Details'
+    },
+    {
+        path: 'pricing',
+        component: PricingPage,
+        title: 'Pricing'
     }
 ];

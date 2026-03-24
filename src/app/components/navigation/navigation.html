@@ -1,5 +1,8 @@
 <div class="flex justify-between items-center">
-  <div><base-text variant="h5" classes="uppercase tracking-wider" text="PROTOVOID" /></div>
+  <a routerLink="/" class="cursor-pointer flex items-center gap-2">
+    <img src="/assets/logo.png" alt="Protovoid Logo" class="w-6 h-6" />
+    <base-text variant="h5" classes="uppercase tracking-wider" text="PROTOVOID" />
+  </a>
   <div class="flex gap-8 items-center">
     @for (item of items; track $index) {
       <div
@@ -9,17 +12,18 @@
         <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase"/>
       </div>
     }
-    <button
-      (click)="toggleTheme()"
-      class="p-2 rounded-lg transition-colors duration-200 hover:bg-tertiary/20"
-      [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+    <base-button label="Contact Sales" variant="secondary"/>
+    <base-icon-button
+      (clicked)="toggleTheme()"
+      size="sm"
+      variant="ghost"
+      [ariaLabel]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
       @if (isDarkMode()) {
-        <ng-icon name="octMoon" class="w-5 h-5 text-primary" />
+        <ng-icon name="octMoon" class="w-4 h-4" />
       } @else {
-        <ng-icon name="octSun" class="w-5 h-5 text-primary" />
+        <ng-icon name="octSun" class="w-4 h-4" />
       }
-    </button>
-    <base-button label="Contact Sales"/>
+    </base-icon-button>
   </div>
 </div>
 <base-separator />

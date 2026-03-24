@@ -53,8 +53,16 @@ export class Link implements BaseComponent {
   }
 
   getClasses(): string {
+    const variantClasses = {
+      primary: 'text-primary',
+      secondary: 'text-secondary',
+      tertiary: 'text-tertiary'
+    };
+
     return [
-      'text-primary',
+      variantClasses[this.variant],
+      'text-xs',
+      'font-light',
       'transition-all',
       'duration-200',
       'ease-in-out'

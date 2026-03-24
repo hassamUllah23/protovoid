@@ -1,13 +1,17 @@
 {
+  "homepage": "https://github.io/hassamUllah23/protovoid",
   "name": "protovoid",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:protovoid": "node dist/protovoid/server/server.mjs"
+    "serve:ssr:protovoid": "node dist/protovoid/server/server.mjs",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "prettier": {
     "printWidth": 100,
@@ -22,7 +26,6 @@
     ]
   },
   "private": true,
-  "packageManager": "npm@10.9.2",
   "dependencies": {
     "@angular/animations": "^21.2.0",
     "@angular/common": "^21.1.0",
@@ -37,6 +40,7 @@
     "@ng-icons/octicons": "^33.1.0",
     "@ng-icons/radix-icons": "^33.1.0",
     "@omnedia/ngx-orb": "^4.0.1",
+    "angular-cli-ghpages": "^3.0.2",
     "express": "^5.1.0",
     "ogl": "^1.0.11",
     "rxjs": "~7.8.0",
@@ -49,6 +53,7 @@
     "@tailwindcss/postcss": "^4.1.12",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "gh-pages": "^6.3.0",
     "jsdom": "^27.1.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.12",

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Text, Dot } from '@shared';
 
 interface Value {
     number: string;
@@ -9,7 +10,7 @@ interface Value {
 @Component({
     selector: 'app-mission',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, Text, Dot],
     templateUrl: './mission.html',
 })
 export class Mission {

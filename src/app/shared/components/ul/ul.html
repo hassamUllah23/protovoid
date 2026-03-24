@@ -1,1 +1,5 @@
-<p>ul works!</p>
+<ul class="space-y-2 font-secondary list-disc list-outside ml-4" [ngClass]="markerClass">
+    @for (item of items; track item) {
+        <li class="text-sm pl-1" [ngClass]="textClass">{{ item }}</li>
+    }
+</ul>

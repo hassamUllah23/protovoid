@@ -1,0 +1,15 @@
+<section class="py-16">
+    <div class="mb-12">
+        <div class="flex items-center gap-2 mb-4">
+            <base-dot />
+            <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Plans</span>
+        </div>
+        <base-text variant="h1" text="Pricing Plans" classes="text-secondary" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for (plan of plans; track plan.id) {
+            <app-pricing-card [plan]="plan" />
+        }
+    </div>
+</section>

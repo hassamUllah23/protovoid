@@ -1,6 +1,6 @@
 <section class="py-16">
     <div class="flex items-center gap-2 mb-12">
-        <span class="w-2 h-2 rounded-full bg-primary"></span>
+        <base-dot />
         <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Values</span>
     </div>
     
@@ -24,17 +24,17 @@
         </div>
         
         <div>
-            <h2 class="text-2xl lg:text-3xl font-semibold text-secondary leading-relaxed mb-8">
-                At Factory, our mission is to 
-                <span class="font-bold">Bring Autonomy to Software Engineering.</span> 
-                In order to accomplish our ambitious goal, we must:
-            </h2>
+            <div class="text-2xl lg:text-3xl text-secondary leading-relaxed mb-8">
+                <base-text variant="h2" text="At Factory, our mission is to " classes="text-secondary inline lg:text-3xl" />
+                <base-text variant="h2" text="Bring Autonomy to Software Engineering." classes="text-secondary inline font-medium lg:text-3xl" />
+                <base-text variant="h2" text=" In order to accomplish our ambitious goal, we must:" classes="text-secondary inline lg:text-3xl" />
+            </div>
             
             <ul class="space-y-3">
                 @for (value of values; track value.number) {
                     <li class="flex items-baseline gap-4">
                         <span class="text-sm font-medium text-primary tabular-nums">{{ value.number }}</span>
-                        <span class="text-lg font-semibold text-secondary">{{ value.text }}</span>
+                        <base-text variant="h5" [text]="value.text" classes="text-secondary" />
                     </li>
                 }
             </ul>
