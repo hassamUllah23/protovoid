@@ -1,14 +1,13 @@
-import { provideAnimations } from '@angular/platform-browser/animations';
-
-
-console.log({ theme: Defaults.theme })
-document.documentElement.setAttribute(
-  'data-theme', 'dark');
-
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
-import { Defaults } from '@utils/defaults';
+
+const savedTheme = localStorage.getItem('theme');
+const initialTheme = savedTheme || 'dark';
+
+if (initialTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+}
 
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));

@@ -6,46 +6,39 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ThemeService {
   private platformId = inject(PLATFORM_ID);
-  isDarkMode = signal<boolean>(false);
+  private isBrowser = isPlatformBrowser(this.platformId);
+  isDarkMode = signal<boolean>(this.getInitialTheme());
 
   constructor() {
-    if (isPlatformBrowser(this.platformId)) {
-      const initialTheme = this.getInitialTheme();
-      this.isDarkMode.set(initialTheme);
-      this.applyTheme(initialTheme);
-
-      effect(() => {
-        const isDark = this.isDarkMode();
-        this.applyTheme(isDark);
-      });
-    }
+    effect(() => {
+      const isDark = this.isDarkMode();
+      this.applyTheme(isDark);
+    });
   }
 
   private getInitialTheme(): boolean {
-    if (typeof localStorage !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved) {
-        return saved === 'dark';
-      }
+    if (!this.isBrowser) {
+      return true;
+    }
+    
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      return saved === 'dark';
     }
 
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-
-    return false;
+    return true;
   }
 
   toggleTheme(): void {
     const newMode = !this.isDarkMode();
     this.isDarkMode.set(newMode);
-    if (typeof localStorage !== 'undefined') {
+    if (this.isBrowser) {
       localStorage.setItem('theme', newMode ? 'dark' : 'light');
     }
   }
 
   private applyTheme(isDark: boolean): void {
-    if (!isPlatformBrowser(this.platformId)) {
+    if (!this.isBrowser) {
       return;
     }
 

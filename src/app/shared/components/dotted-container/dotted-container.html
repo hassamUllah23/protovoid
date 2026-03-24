@@ -1,0 +1,15 @@
+<div class="relative border border-dashed border-tertiary/40 rounded-lg">
+    <div class="absolute -top-1 -left-1">
+        <base-dot />
+    </div>
+    
+    @if (label) {
+        <div class="absolute -top-3 right-4 px-2 bg-bg">
+            <span class="text-xs font-medium uppercase tracking-wider text-tertiary">{{ label }}</span>
+        </div>
+    }
+    
+    <div class="p-6">
+        <ng-content></ng-content>
+    </div>
+</div>

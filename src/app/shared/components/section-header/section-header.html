@@ -1,0 +1,33 @@
+<div class="w-full">
+    <div class="border-t border-tertiary/20"></div>
+    
+    <div class="flex items-center justify-between py-4">
+        <div class="flex items-center gap-2">
+            <base-dot />
+            <span class="text-xs font-medium uppercase tracking-widest text-tertiary">{{ label }}</span>
+        </div>
+        
+        @if (actionLabel) {
+            @if (actionLink) {
+                <a 
+                    [routerLink]="actionLink"
+                    class="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-tertiary hover:text-secondary transition-colors"
+                >
+                    {{ actionLabel }}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            } @else {
+                <button 
+                    class="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-tertiary hover:text-secondary transition-colors"
+                >
+                    {{ actionLabel }}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+            }
+        }
+    </div>
+</div>

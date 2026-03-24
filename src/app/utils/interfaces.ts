@@ -17,4 +17,20 @@ export interface Job {
     qualifications: string[];
 }
 
+export interface NewsItem {
+    id: string;
+    tag: string;
+    isNew: boolean;
+    heading: string;
+    description: string;
+    date: string;
+    readTime: string;
+    content: NewsSection[];
+}
+
+export interface NewsSection {
+    title: string;
+    paragraphs: string[];
+}
+
 export type { BaseComponent }

@@ -1,0 +1,7 @@
+<base-section label="NEWS" actionLabel="MORE NEWS" actionLink="/news">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        @for (news of newsItems; track news.id) {
+            <app-news-card [news]="news" />
+        }
+    </div>
+</base-section>

@@ -3,11 +3,12 @@ import { NgxOrbComponent } from '@omnedia/ngx-orb';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { Terminal } from '@shared/components/terminal/terminal';
+import { DottedContainer } from '@shared';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [NgxOrbComponent, Terminal],
+  imports: [NgxOrbComponent, Terminal, DottedContainer],
   templateUrl: './landing.html',
   styles: ``,
 })
