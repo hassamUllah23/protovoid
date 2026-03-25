@@ -44,7 +44,7 @@ export class JobFilter {
         const base = 'px-3 py-1.5 text-xs font-medium uppercase tracking-wide rounded transition-all duration-200 border';
         
         if (this.activeFilter === value) {
-            return `${base} bg-secondary text-bg border-secondary`;
+            return `${base} bg-secondary text-[color:var(--color-bg)] border-secondary`;
         }
         
         return `${base} bg-transparent text-tertiary border-tertiary/30 hover:border-tertiary hover:text-secondary`;
