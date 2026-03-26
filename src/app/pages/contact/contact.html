@@ -1,0 +1,104 @@
+<section class="py-12">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    
+    <div class="space-y-6">
+      <div class="flex items-center gap-2">
+        <base-dot />
+        <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Why Protovoid</span>
+      </div>
+
+      <base-text 
+        variant="h1" 
+        text="Bring Autonomy to your Engineering Organization" 
+        classes="text-secondary" 
+      />
+
+      <div class="space-y-1 text-tertiary">
+        <p>Factory is the enterprise platform</p>
+        <p>for agent-native software development.</p>
+        <p>More time. Better code. Faster cycles.</p>
+        <p>Welcome to the bleeding edge.</p>
+      </div>
+    </div>
+
+    <base-container>
+      <div class="flex items-center gap-2 mb-8">
+        <base-dot />
+        <base-text variant="h4" text="Contact us" classes="text-secondary" />
+      </div>
+
+      <form (ngSubmit)="onSubmit()" class="space-y-6">
+        <div class="grid grid-cols-2 gap-4">
+          <base-input
+            label="First Name"
+            [required]="true"
+            placeholder="First Name"
+            [value]="formData().firstName"
+            (input)="updateField('firstName', $any($event.target).value)"
+          />
+          <base-input
+            label="Last Name"
+            [required]="true"
+            placeholder="Last Name"
+            [value]="formData().lastName"
+            (input)="updateField('lastName', $any($event.target).value)"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <base-input
+            label="Work Email"
+            type="email"
+            [required]="true"
+            placeholder="Work Email"
+            [value]="formData().workEmail"
+            (input)="updateField('workEmail', $any($event.target).value)"
+          />
+          <base-input
+            label="Company"
+            [required]="false"
+            placeholder="Company"
+            [value]="formData().company"
+            (input)="updateField('company', $any($event.target).value)"
+          />
+        </div>
+
+        <base-select
+          label="How did you find us"
+          [required]="true"
+          placeholder="Select one..."
+          [options]="sourceOptions"
+          [value]="formData().source"
+          (change)="updateField('source', $any($event.target).value)"
+        />
+
+        <div class="my-5">
+          <base-textarea
+          label="Message"
+          [required]="true"
+          placeholder="Tell us about your project..."
+          [rows]="6"
+          [value]="formData().message"
+          (input)="updateField('message', $any($event.target).value)"
+        />
+        </div>
+
+        <div class="pt-2">
+          <button 
+            type="submit"
+            [disabled]="!isFormValid() || isSubmitting()"
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-[color:var(--color-bg)] text-sm font-medium uppercase tracking-wide rounded transition-colors hover:bg-secondary/90 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {{ isSubmitting() ? 'Submitting...' : 'Submit' }}
+            @if (!isSubmitting()) {
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            }
+          </button>
+        </div>
+      </form>
+    </base-container>
+
+  </div>
+</section>

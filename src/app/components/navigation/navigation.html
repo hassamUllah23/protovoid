@@ -1,29 +1,43 @@
-<div class="flex justify-between items-center">
-  <a routerLink="/" class="cursor-pointer flex items-center gap-2">
-    <img src="/assets/logo.png" alt="Protovoid Logo" class="w-6 h-6" />
-    <base-text variant="h5" classes="uppercase tracking-wider" text="PROTOVOID" />
-  </a>
-  <div class="flex gap-8 items-center">
-    @for (item of items; track $index) {
-      <div
-        [class]="getNavItemClasses($index)"
-        (mouseenter)="onNavItemHover($index)"
-        (mouseleave)="onNavItemLeave()">
-        <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase"/>
-      </div>
-    }
-    <base-button label="Contact Sales" variant="secondary"/>
-    <base-icon-button
-      (clicked)="toggleTheme()"
-      size="sm"
-      variant="ghost"
-      [ariaLabel]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
-      @if (isDarkMode()) {
-        <ng-icon name="octMoon" class="w-4 h-4" />
-      } @else {
-        <ng-icon name="octSun" class="w-4 h-4" />
+<nav class="sticky top-0 z-50 bg-[color:var(--color-bg)] py-4 -mx-6 px-6 -mt-4">
+  <div class="flex justify-between items-center">
+    <a routerLink="/" [class]="'logo-text cursor-pointer flex items-center gap-2 ' + (logoAnimating() ? 'animating' : '')">
+      <img src="/assets/logo.png" alt="Protovoid Logo" class="w-6 h-6" />
+      <span class=" text-secondary text-lg font-medium uppercase tracking-wider flex">
+        @for (char of companyName; track $index) {
+          <span class="logo-char">
+            <span>{{ char }}</span>
+            <span>{{ char }}</span>
+          </span>
+        }
+      </span>
+    </a>
+    <div class="flex gap-8 items-center">
+      @for (item of items; track $index) {
+        <div
+          [class]="getNavItemClasses($index)"
+          (mouseenter)="onNavItemHover($index)"
+          (mouseleave)="onNavItemLeave()">
+          <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase"/>
+        </div>
       }
-    </base-icon-button>
+      <a 
+        routerLink="/contact" 
+        class="inline-flex items-center justify-center px-3 py-1.5 text-sm font-normal leading-none rounded-lg transition-all duration-200 uppercase tracking-tight bg-[color:var(--color-bg)] text-secondary border border-secondary/30 hover:border-secondary/50"
+      >
+        Contact Sales
+      </a>
+      <base-icon-button
+        (clicked)="toggleTheme()"
+        size="sm"
+        variant="ghost"
+        [ariaLabel]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+        @if (isDarkMode()) {
+          <ng-icon name="octMoon" class="w-4 h-4" />
+        } @else {
+          <ng-icon name="octSun" class="w-4 h-4" />
+        }
+      </base-icon-button>
+    </div>
   </div>
-</div>
-<base-separator />
+  <base-separator />
+</nav>

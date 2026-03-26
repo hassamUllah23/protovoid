@@ -4,6 +4,7 @@ import { Company } from './pages/company/company';
 import { Career } from './pages/career/career';
 import { JobDetail } from './pages/job-detail/job-detail';
 import { PricingPage } from './pages/pricing/pricing';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,10 @@ export const routes: Routes = [
         path: 'pricing',
         component: PricingPage,
         title: 'Pricing'
+    },
+    {
+        path: 'contact',
+        component: Contact,
+        title: 'Contact Us'
     }
 ];
