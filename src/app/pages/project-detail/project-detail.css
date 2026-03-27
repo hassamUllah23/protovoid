@@ -1,0 +1,11 @@
+.main-image {
+    border: 1px solid rgba(var(--color-tertiary-rgb), 0.2);
+}
+
+.thumbnail {
+    cursor: pointer;
+}
+
+.thumbnail:hover {
+    border-color: rgba(var(--color-tertiary-rgb), 0.5);
+}

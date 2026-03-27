@@ -5,6 +5,8 @@ import { Career } from './pages/career/career';
 import { JobDetail } from './pages/job-detail/job-detail';
 import { PricingPage } from './pages/pricing/pricing';
 import { Contact } from './pages/contact/contact';
+import { Projects } from './pages/projects/projects';
+import { ProjectDetail } from './pages/project-detail/project-detail';
 
 export const routes: Routes = [
     {
@@ -36,5 +38,15 @@ export const routes: Routes = [
         path: 'contact',
         component: Contact,
         title: 'Contact Us'
+    },
+    {
+        path: 'projects',
+        component: Projects,
+        title: 'Projects'
+    },
+    {
+        path: 'projects/:id',
+        component: ProjectDetail,
+        title: 'Project Details'
     }
 ];

@@ -1,0 +1,18 @@
+.project-card {
+    background-color: rgba(var(--color-secondary-rgb), 0.02);
+}
+
+.project-card:hover {
+    background-color: rgba(var(--color-secondary-rgb), 0.05);
+}
+
+.banner-title {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

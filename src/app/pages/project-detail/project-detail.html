@@ -1,0 +1,152 @@
+@if (project(); as projectData) {
+    <div class="w-full py-8">
+        <a 
+            routerLink="/projects" 
+            class="inline-flex items-center gap-2 text-tertiary hover:text-secondary transition-colors mb-6"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span class="text-sm uppercase tracking-wide">Back to Projects</span>
+        </a>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12">
+            <aside class="space-y-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <base-dot />
+                        <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Project</span>
+                    </div>
+                    <h1 class="text-3xl font-bold text-secondary mb-4">{{ projectData.title }}</h1>
+                    <button 
+                        (click)="openUrl(projectData.url)"
+                        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-[color:var(--color-bg)] bg-secondary rounded hover:bg-secondary/90 transition-colors"
+                    >
+                        Visit Website
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Date</h3>
+                        <p class="text-secondary">{{ formatDate(projectData.date) }}</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Website</h3>
+                        <a 
+                            [href]="projectData.url" 
+                            target="_blank"
+                            class="text-primary hover:underline break-all text-sm"
+                        >
+                            {{ projectData.url }}
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="border-t border-tertiary/20 pt-6">
+                    <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-3">Technologies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        @for (tech of projectData.technologies; track tech) {
+                            <span class="px-3 py-1.5 text-xs text-secondary border border-tertiary/30 rounded-lg">
+                                {{ tech }}
+                            </span>
+                        }
+                    </div>
+                </div>
+                
+                <div class="border-t border-tertiary/20 pt-6">
+                    <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-3">Table of Contents</h3>
+                    <nav class="space-y-2">
+                        <a 
+                            href="#overview"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors"
+                        >
+                            01 Overview
+                        </a>
+                        <a 
+                            href="#gallery"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors"
+                        >
+                            02 Gallery
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+            
+            <main class="space-y-12">
+                <section id="overview">
+                    <div class="flex items-center gap-2 mb-4">
+                        <base-dot />
+                        <h2 class="text-xl font-semibold text-secondary">Overview</h2>
+                    </div>
+                    
+                    <p class="text-tertiary leading-relaxed">{{ projectData.description }}</p>
+                </section>
+                
+                <section id="gallery">
+                    <div class="flex items-center gap-2 mb-6">
+                        <base-dot />
+                        <h2 class="text-xl font-semibold text-secondary">Gallery</h2>
+                    </div>
+                    
+                    <div class="main-image aspect-video bg-tertiary/10 rounded-lg overflow-hidden mb-4">
+                        <img 
+                            [src]="selectedImage()" 
+                            [alt]="projectData.title + ' preview'"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    
+                    @if (projectData.images.length > 0) {
+                        <div class="grid grid-cols-4 gap-2">
+                            <button 
+                                (click)="selectImage(projectData.bannerImage)"
+                                class="thumbnail aspect-video bg-tertiary/10 rounded overflow-hidden border-2 transition-colors"
+                                [class.border-primary]="selectedImage() === projectData.bannerImage"
+                                [class.border-transparent]="selectedImage() !== projectData.bannerImage"
+                            >
+                                <img 
+                                    [src]="projectData.bannerImage" 
+                                    [alt]="projectData.title + ' banner'"
+                                    class="w-full h-full object-cover"
+                                />
+                            </button>
+                            @for (image of projectData.images; track image; let i = $index) {
+                                <button 
+                                    (click)="selectImage(image)"
+                                    class="thumbnail aspect-video bg-tertiary/10 rounded overflow-hidden border-2 transition-colors"
+                                    [class.border-primary]="selectedImage() === image"
+                                    [class.border-transparent]="selectedImage() !== image"
+                                >
+                                    <img 
+                                        [src]="image" 
+                                        [alt]="projectData.title + ' image ' + (i + 1)"
+                                        class="w-full h-full object-cover"
+                                    />
+                                </button>
+                            }
+                        </div>
+                    }
+                </section>
+            </main>
+        </div>
+    </div>
+} @else {
+    <div class="w-full py-16 text-center">
+        <h1 class="text-2xl font-bold text-secondary mb-4">Project Not Found</h1>
+        <p class="text-tertiary mb-6">The project you're looking for doesn't exist or has been removed.</p>
+        <a 
+            routerLink="/projects" 
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-[color:var(--color-bg)] bg-secondary rounded hover:bg-secondary/90 transition-colors"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Projects
+        </a>
+    </div>
+}

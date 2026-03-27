@@ -1,0 +1,77 @@
+<section class="py-12 px-6 max-w-[80%] mx-auto">
+    <div class="mb-12">
+        <div class="flex items-center gap-2 mb-4">
+            <base-dot />
+            <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Portfolio</span>
+        </div>
+        <base-text 
+            variant="h1" 
+            text="Our Projects" 
+            classes="text-secondary mb-4" 
+        />
+        <p class="text-tertiary max-w-2xl">
+            A collection of projects we've built, showcasing our expertise in software development, 
+            system design, and cutting-edge technologies.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        @for (project of projects; track project.id) {
+            <a 
+                [routerLink]="['/projects', project.id]"
+                class="project-card group border border-tertiary/20 rounded-lg overflow-hidden transition-all duration-300 hover:border-tertiary/40"
+            >
+                <div class="aspect-video bg-tertiary/10 overflow-hidden relative">
+                    <img 
+                        [src]="project.bannerImage" 
+                        [alt]="project.title + ' banner'"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-black/20 transition-opacity duration-500 group-hover:bg-black/50"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="banner-title text-white text-2xl font-medium uppercase tracking-wider opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                            {{ project.title }}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-lg font-medium text-secondary group-hover:text-primary transition-colors">
+                            {{ project.title }}
+                        </h3>
+                        <span class="text-xs text-tertiary uppercase tracking-wider">
+                            {{ formatDate(project.date) }}
+                        </span>
+                    </div>
+                    
+                    <p class="text-sm text-tertiary mb-4 line-clamp-2">
+                        {{ project.shortDescription }}
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        @for (tech of project.technologies.slice(0, 4); track tech) {
+                            <span class="px-2 py-1 text-xs text-tertiary border border-tertiary/20 rounded">
+                                {{ tech }}
+                            </span>
+                        }
+                        @if (project.technologies.length > 4) {
+                            <span class="px-2 py-1 text-xs text-tertiary border border-tertiary/20 rounded">
+                                +{{ project.technologies.length - 4 }}
+                            </span>
+                        }
+                    </div>
+                </div>
+                
+                <div class="px-6 pb-6">
+                    <div class="flex items-center gap-2 text-sm text-tertiary group-hover:text-primary transition-colors">
+                        <span class="uppercase tracking-wide">View Project</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</section>

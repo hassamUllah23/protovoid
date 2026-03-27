@@ -75,7 +75,7 @@ export class Navigation implements OnInit, OnDestroy {
     this.items = [
       // { url: '/', label: 'Home' },
 
-      { url: '/contact', label: 'Products' },
+      { url: '/projects', label: 'Projects' },
       { url: '/about', label: 'About' },
       // { url: '/contact', label: 'Contact' },
       { url: '/pricing', label: 'Pricing' },
