@@ -6,8 +6,22 @@
     background-color: rgba(var(--color-secondary-rgb), 0.05);
 }
 
+.banner-overlay {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    transition: all 0.5s ease;
+}
+
+.project-card:hover .banner-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
 .banner-title {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.15em;
 }
 
 .line-clamp-2 {

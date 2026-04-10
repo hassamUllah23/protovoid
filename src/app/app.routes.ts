@@ -7,6 +7,7 @@ import { PricingPage } from './pages/pricing/pricing';
 import { Contact } from './pages/contact/contact';
 import { Projects } from './pages/projects/projects';
 import { ProjectDetail } from './pages/project-detail/project-detail';
+import { Services } from './pages/services/services';
 
 export const routes: Routes = [
     {
@@ -48,5 +49,10 @@ export const routes: Routes = [
         path: 'projects/:id',
         component: ProjectDetail,
         title: 'Project Details'
+    },
+    {
+        path: 'services',
+        component: Services,
+        title: 'Services'
     }
 ];

@@ -20,9 +20,7 @@ export const PROJECTS: Project[] = [
     url: 'https://dev.fahwa.io/en',
     bannerImage: '/assets/banners/fahwa.png',
     images: [
-      '/assets/projects/fahwa-1.jpg',
-      '/assets/projects/fahwa-2.jpg',
-      '/assets/projects/fahwa-3.jpg'
+      '/assets/banners/fahwa.png'
     ],
     technologies: ['Angular', 'TypeScript', 'Node.js', 'OpenAI', 'PostgreSQL', 'Tailwind CSS']
   },
@@ -35,8 +33,7 @@ export const PROJECTS: Project[] = [
     url: 'https://drivepk.com',
     bannerImage: '/assets/banners/drivepk.png',
     images: [
-      '/assets/projects/drivepk-1.jpg',
-      '/assets/projects/drivepk-2.jpg'
+      '/assets/banners/drivepk.png'
     ],
     technologies: ['Next.js', 'React', 'Node.js', 'MongoDB', 'AWS', 'Tailwind CSS']
   },
@@ -49,9 +46,7 @@ export const PROJECTS: Project[] = [
     url: 'https://mealmonkey.in',
     bannerImage: '/assets/banners/mealmonkey.png',
     images: [
-      '/assets/projects/mealmonkey-1.jpg',
-      '/assets/projects/mealmonkey-2.jpg',
-      '/assets/projects/mealmonkey-3.jpg'
+      '/assets/banners/mealmonkey.png'
     ],
     technologies: ['Flutter', 'Dart', 'Firebase', 'Node.js', 'Google Maps API', 'Stripe']
   },
@@ -64,8 +59,7 @@ export const PROJECTS: Project[] = [
     url: 'https://keenlydigital.com',
     bannerImage: '/assets/banners/keenlydigital.png',
     images: [
-      '/assets/projects/keenlydigital-1.jpg',
-      '/assets/projects/keenlydigital-2.jpg'
+      '/assets/banners/keenlydigital.png'
     ],
     technologies: ['React', 'Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Vercel']
   },
@@ -78,10 +72,7 @@ export const PROJECTS: Project[] = [
     url: 'https://3cx.com',
     bannerImage: '/assets/banners/3cx.png',
     images: [
-      '/assets/projects/3cx-1.jpg',
-      '/assets/projects/3cx-2.jpg',
-      '/assets/projects/3cx-3.jpg',
-      '/assets/projects/3cx-4.jpg'
+      '/assets/banners/3cx.png'
     ],
     technologies: ['Angular', 'TypeScript', '.NET', 'WebRTC', 'PostgreSQL', 'Docker', 'Kubernetes']
   },
@@ -94,9 +85,7 @@ export const PROJECTS: Project[] = [
     url: 'https://kruzee.com',
     bannerImage: '/assets/banners/kruzee.png',
     images: [
-      '/assets/projects/kruzee-1.jpg',
-      '/assets/projects/kruzee-2.jpg',
-      '/assets/projects/kruzee-3.jpg'
+      '/assets/banners/kruzee.png'
     ],
     technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Google Maps API', 'AWS']
   }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Text, Dot } from '@shared';
+import { Dot } from '@shared';
 
 @Component({
   selector: 'app-cta',
   standalone: true,
-  imports: [Text, Dot],
+  imports: [Dot],
   templateUrl: './cta.html',
   styleUrl: './cta.css',
 })

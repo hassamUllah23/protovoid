@@ -2,14 +2,14 @@ import { Component, inject, signal, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavItem } from './nav-item/nav-item';
-import { Text, Button, IconButton, Separator } from "@shared";
+import { IconButton, Separator } from "@shared";
 import { ThemeService } from '../../services/theme.service';
 import { NgIconsModule } from '@ng-icons/core';
 import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
-  imports: [NavItem, Text, Button, IconButton, Separator, NgIconsModule, RouterLink, CommonModule],
+  imports: [NavItem, IconButton, Separator, NgIconsModule, RouterLink, CommonModule],
   templateUrl: './navigation.html',
   styles: `
     .logo-text {
@@ -75,8 +75,8 @@ export class Navigation implements OnInit, OnDestroy {
     this.items = [
       // { url: '/', label: 'Home' },
 
+      { url: '/services', label: 'Services' },
       { url: '/projects', label: 'Projects' },
-      { url: '/about', label: 'About' },
       // { url: '/contact', label: 'Contact' },
       { url: '/pricing', label: 'Pricing' },
       { url: '/company', label: 'Company' },

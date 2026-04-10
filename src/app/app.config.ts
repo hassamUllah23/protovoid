@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
-import { octSun, octMoon } from '@ng-icons/octicons';
+import { octSun, octMoon, octAgent } from '@ng-icons/octicons';
 import { radixGithubLogo, radixLinkedinLogo, radixTwitterLogo, radixCross1 } from '@ng-icons/radix-icons';
 
 import { routes } from './app.routes';
@@ -17,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideIcons({
       octSun,
       octMoon,
+      octAgent,
       radixGithubLogo,
       radixLinkedinLogo,
       radixTwitterLogo,

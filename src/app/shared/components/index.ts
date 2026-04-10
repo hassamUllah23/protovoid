@@ -20,3 +20,4 @@ export { Ul } from './ul/ul';
 export { Timeline } from './timeline/timeline';
 export { Select } from './select/select';
 export { Textarea } from './textarea/textarea';
+export { ImageFullscreen } from './image-fullscreen/image-fullscreen';

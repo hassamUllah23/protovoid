@@ -18,15 +18,16 @@
                         <span class="text-xs font-medium uppercase tracking-widest text-tertiary">Project</span>
                     </div>
                     <h1 class="text-3xl font-bold text-secondary mb-4">{{ projectData.title }}</h1>
-                    <button 
-                        (click)="openUrl(projectData.url)"
-                        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-[color:var(--color-bg)] bg-secondary rounded hover:bg-secondary/90 transition-colors"
+                    <a 
+                        [href]="projectData.url" 
+                        target="_blank"
+                        class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
                     >
-                        Visit Website
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                         </svg>
-                    </button>
+                        <span class="break-all">{{ projectData.url }}</span>
+                    </a>
                 </div>
                 
                 <div class="space-y-4">
@@ -34,45 +35,29 @@
                         <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Date</h3>
                         <p class="text-secondary">{{ formatDate(projectData.date) }}</p>
                     </div>
-                    
-                    <div>
-                        <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Website</h3>
-                        <a 
-                            [href]="projectData.url" 
-                            target="_blank"
-                            class="text-primary hover:underline break-all text-sm"
-                        >
-                            {{ projectData.url }}
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="border-t border-tertiary/20 pt-6">
-                    <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-3">Technologies</h3>
-                    <div class="flex flex-wrap gap-2">
-                        @for (tech of projectData.technologies; track tech) {
-                            <span class="px-3 py-1.5 text-xs text-secondary border border-tertiary/30 rounded-lg">
-                                {{ tech }}
-                            </span>
-                        }
-                    </div>
                 </div>
                 
                 <div class="border-t border-tertiary/20 pt-6">
                     <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-3">Table of Contents</h3>
                     <nav class="space-y-2">
-                        <a 
-                            href="#overview"
-                            class="block text-sm text-tertiary hover:text-primary transition-colors"
+                        <button 
+                            (click)="scrollTo('overview')"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors text-left"
                         >
                             01 Overview
-                        </a>
-                        <a 
-                            href="#gallery"
-                            class="block text-sm text-tertiary hover:text-primary transition-colors"
+                        </button>
+                        <button 
+                            (click)="scrollTo('technologies')"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors text-left"
                         >
-                            02 Gallery
-                        </a>
+                            02 Technologies
+                        </button>
+                        <button 
+                            (click)="scrollTo('gallery')"
+                            class="block text-sm text-tertiary hover:text-primary transition-colors text-left"
+                        >
+                            03 Gallery
+                        </button>
                     </nav>
                 </div>
             </aside>
@@ -86,6 +71,21 @@
                     
                     <p class="text-tertiary leading-relaxed">{{ projectData.description }}</p>
                 </section>
+
+                <section id="technologies">
+                    <div class="flex items-center gap-2 mb-4">
+                        <base-dot />
+                        <h2 class="text-xl font-semibold text-secondary">Technologies</h2>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        @for (tech of projectData.technologies; track tech) {
+                            <span class="px-4 py-2 text-sm text-secondary border border-tertiary/30 rounded-lg">
+                                {{ tech }}
+                            </span>
+                        }
+                    </div>
+                </section>
                 
                 <section id="gallery">
                     <div class="flex items-center gap-2 mb-6">
@@ -93,44 +93,10 @@
                         <h2 class="text-xl font-semibold text-secondary">Gallery</h2>
                     </div>
                     
-                    <div class="main-image aspect-video bg-tertiary/10 rounded-lg overflow-hidden mb-4">
-                        <img 
-                            [src]="selectedImage()" 
-                            [alt]="projectData.title + ' preview'"
-                            class="w-full h-full object-cover"
-                        />
-                    </div>
-                    
-                    @if (projectData.images.length > 0) {
-                        <div class="grid grid-cols-4 gap-2">
-                            <button 
-                                (click)="selectImage(projectData.bannerImage)"
-                                class="thumbnail aspect-video bg-tertiary/10 rounded overflow-hidden border-2 transition-colors"
-                                [class.border-primary]="selectedImage() === projectData.bannerImage"
-                                [class.border-transparent]="selectedImage() !== projectData.bannerImage"
-                            >
-                                <img 
-                                    [src]="projectData.bannerImage" 
-                                    [alt]="projectData.title + ' banner'"
-                                    class="w-full h-full object-cover"
-                                />
-                            </button>
-                            @for (image of projectData.images; track image; let i = $index) {
-                                <button 
-                                    (click)="selectImage(image)"
-                                    class="thumbnail aspect-video bg-tertiary/10 rounded overflow-hidden border-2 transition-colors"
-                                    [class.border-primary]="selectedImage() === image"
-                                    [class.border-transparent]="selectedImage() !== image"
-                                >
-                                    <img 
-                                        [src]="image" 
-                                        [alt]="projectData.title + ' image ' + (i + 1)"
-                                        class="w-full h-full object-cover"
-                                    />
-                                </button>
-                            }
-                        </div>
-                    }
+                    <base-image-fullscreen 
+                        [images]="getAllImages()" 
+                        [alt]="projectData.title"
+                    />
                 </section>
             </main>
         </div>

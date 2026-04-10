@@ -1,0 +1,33 @@
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Lightbox */
+.lightbox {
+    animation: fadeIn 0.2s ease;
+}
+
+.lightbox img {
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}

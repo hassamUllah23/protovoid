@@ -1,11 +1,6 @@
-.main-image {
-    border: 1px solid rgba(var(--color-tertiary-rgb), 0.2);
-}
+/* Project detail page styles */
 
-.thumbnail {
-    cursor: pointer;
-}
-
-.thumbnail:hover {
-    border-color: rgba(var(--color-tertiary-rgb), 0.5);
+/* Offset for smooth scroll to account for sticky nav */
+section[id] {
+    scroll-margin-top: 100px;
 }
