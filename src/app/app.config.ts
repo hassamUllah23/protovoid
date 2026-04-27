@@ -13,6 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
+
     provideClientHydration(withEventReplay()),
     provideIcons({
       octSun,
