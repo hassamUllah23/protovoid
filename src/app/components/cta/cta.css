@@ -24,7 +24,6 @@ button:hover {
 
 a {
   position: relative;
-  display: inline-block;
   color: rgb(var(--color-primary-rgb));
   transition: color 0.3s ease-in-out;
   text-decoration: none;

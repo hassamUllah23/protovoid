@@ -28,7 +28,7 @@ export const PRICING_PLANS: PricingPlan[] = [
             {
                 title: 'Dedicated compute with frontier models',
                 features: [
-                    '10M Factory Standard Credits, shared across all models',
+                    '10M Protovoid Standard Credits, shared across all models',
                     '+10M bonus credits',
                     'Fast and direct priority routing, the day the model is available'
                 ]
@@ -64,7 +64,7 @@ export const PRICING_PLANS: PricingPlan[] = [
             {
                 title: 'Expanded reserved capacity',
                 features: [
-                    '100M Factory Standard Credits, shared across all models',
+                    '100M Protovoid Standard Credits, shared across all models',
                     '+100M bonus credits',
                     'Early access to new features'
                 ]

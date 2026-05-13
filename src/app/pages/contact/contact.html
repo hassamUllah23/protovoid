@@ -1,5 +1,5 @@
 <section class="py-12">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
     
     <div class="space-y-6">
       <div class="flex items-center gap-2">
@@ -13,11 +13,11 @@
         classes="text-secondary" 
       />
 
-      <div class="space-y-1 text-tertiary">
-        <p>Factory is the enterprise platform</p>
-        <p>for agent-native software development.</p>
-        <p>More time. Better code. Faster cycles.</p>
-        <p>Welcome to the bleeding edge.</p>
+      <div class="space-y-0.5">
+        <base-text variant="text" text="Protovoid is the enterprise platform" classes="text-tertiary" />
+        <base-text variant="text" text="for agent-native software development." classes="text-tertiary" />
+        <base-text variant="text" text="More time. Better code. Faster cycles." classes="text-tertiary" />
+        <base-text variant="text" text="Welcome to the bleeding edge." classes="text-tertiary" />
       </div>
     </div>
 
@@ -28,7 +28,7 @@
       </div>
 
       <form (ngSubmit)="onSubmit()" class="space-y-6">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <base-input
             label="First Name"
             [required]="true"
@@ -45,7 +45,7 @@
           />
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <base-input
             label="Work Email"
             type="email"

@@ -1,7 +1,7 @@
-<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
         @for (option of filterOptions; track option.value) {
-            <button 
+            <button
                 [class]="getFilterButtonClasses(option.value)"
                 (click)="onFilterClick(option.value)"
             >
@@ -9,17 +9,13 @@
             </button>
         }
     </div>
-    
-    <div class="flex items-center gap-4">
-        <select 
-            [value]="activeLocation"
+
+    <div class="flex items-center">
+        <base-select
+            placeholder="All locations"
+            [options]="locationOptions"
+            [value]="activeLocation === 'all' ? '' : activeLocation"
             (change)="onLocationChange($event)"
-            class="bg-transparent text-tertiary text-xs uppercase tracking-wide border border-tertiary/30 rounded px-3 py-1.5 focus:outline-none focus:border-tertiary cursor-pointer"
-        >
-            <option value="all">All locations</option>
-            @for (location of locations; track location) {
-                <option [value]="location">{{ location }}</option>
-            }
-        </select>
+        />
     </div>
 </div>

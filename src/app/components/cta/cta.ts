@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Dot } from '@shared';
+import { RouterLink } from '@angular/router';
+import { Dot, Text } from '@shared';
 
 @Component({
   selector: 'app-cta',
   standalone: true,
-  imports: [Dot],
+  imports: [Dot, RouterLink, Text],
   templateUrl: './cta.html',
   styleUrl: './cta.css',
 })

@@ -10,7 +10,7 @@
             <span class="text-sm uppercase tracking-wide">Back to Projects</span>
         </a>
         
-        <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 lg:gap-12">
             <aside class="space-y-8">
                 <div>
                     <div class="flex items-center gap-2 mb-2">
@@ -33,7 +33,7 @@
                 <div class="space-y-4">
                     <div>
                         <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Date</h3>
-                        <p class="text-secondary">{{ formatDate(projectData.date) }}</p>
+                        <base-text variant="text" [text]="formatDate(projectData.date)" classes="text-secondary" />
                     </div>
                 </div>
                 
@@ -69,7 +69,7 @@
                         <h2 class="text-xl font-semibold text-secondary">Overview</h2>
                     </div>
                     
-                    <p class="text-tertiary leading-relaxed">{{ projectData.description }}</p>
+                    <base-text variant="text" [text]="projectData.description" classes="text-tertiary" />
                 </section>
 
                 <section id="technologies">
@@ -80,7 +80,7 @@
                     
                     <div class="flex flex-wrap gap-2">
                         @for (tech of projectData.technologies; track tech) {
-                            <span class="px-4 py-2 text-sm text-secondary border border-tertiary/30 rounded-lg">
+                            <span class="px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm text-secondary border border-tertiary/30 rounded-lg">
                                 {{ tech }}
                             </span>
                         }
@@ -104,7 +104,7 @@
 } @else {
     <div class="w-full py-16 text-center">
         <h1 class="text-2xl font-bold text-secondary mb-4">Project Not Found</h1>
-        <p class="text-tertiary mb-6">The project you're looking for doesn't exist or has been removed.</p>
+        <base-text variant="text" text="The project you're looking for doesn't exist or has been removed." classes="text-tertiary mb-6" />
         <a 
             routerLink="/projects" 
             class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-[color:var(--color-bg)] bg-secondary rounded hover:bg-secondary/90 transition-colors"

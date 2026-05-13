@@ -10,7 +10,7 @@
             <span class="text-sm uppercase tracking-wide">Back to Careers</span>
         </a>
         
-        <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 lg:gap-12">
             <aside class="space-y-8">
                 <div>
                     <h1 class="text-3xl font-bold text-secondary mb-4">{{ jobData.title }}</h1>
@@ -28,12 +28,12 @@
                 <div class="space-y-4">
                     <div>
                         <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Location</h3>
-                        <p class="text-secondary">{{ jobData.location }}</p>
+                        <base-text variant="text" [text]="jobData.location" classes="text-secondary" />
                     </div>
                     
                     <div>
                         <h3 class="text-xs font-medium uppercase tracking-wider text-tertiary mb-1">Type</h3>
-                        <p class="text-secondary">{{ formatType(jobData.type) }}</p>
+                        <base-text variant="text" [text]="formatType(jobData.type)" classes="text-secondary" />
                     </div>
                     
                     <div>
@@ -72,7 +72,7 @@
                         <h2 class="text-xl font-semibold text-secondary">Responsibilities</h2>
                     </div>
                     
-                    <p class="text-tertiary mb-6">{{ jobData.description }}</p>
+                    <base-text variant="text" [text]="jobData.description" classes="text-tertiary mb-6" />
                     
                     <h3 class="text-base font-medium text-secondary mb-4">What you will do and achieve:</h3>
                     
@@ -103,7 +103,7 @@
 } @else {
     <div class="w-full py-16 text-center">
         <h1 class="text-2xl font-bold text-secondary mb-4">Job Not Found</h1>
-        <p class="text-tertiary mb-6">The job you're looking for doesn't exist or has been removed.</p>
+        <base-text variant="text" text="The job you're looking for doesn't exist or has been removed." classes="text-tertiary mb-6" />
         <a 
             routerLink="/careers" 
             class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wide text-[color:var(--color-bg)] bg-secondary rounded hover:bg-secondary/90 transition-colors"

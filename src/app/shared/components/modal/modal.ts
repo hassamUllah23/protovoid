@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconsModule } from '@ng-icons/core';
+import { Text } from '@shared';
 
 @Component({
     selector: 'base-modal',
     standalone: true,
-    imports: [CommonModule, NgIconsModule],
+    imports: [CommonModule, NgIconsModule, Text],
     templateUrl: './modal.html',
 })
 export class Modal implements OnChanges {

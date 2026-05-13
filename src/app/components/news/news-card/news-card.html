@@ -14,9 +14,7 @@
         {{ news.heading }}
     </h3>
     
-    <p class="text-sm text-tertiary mb-4 line-clamp-3">
-        {{ news.description }}
-    </p>
+    <base-text variant="text" [text]="news.description" classes="text-tertiary mb-4 line-clamp-3" />
     
     <a 
         [routerLink]="['/news', news.id]"

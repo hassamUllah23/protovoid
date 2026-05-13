@@ -22,8 +22,8 @@
 
 <!-- Services Showcase -->
 @for (service of services; track service.id; let i = $index; let odd = $odd; let first = $first) {
-    <section class="service-section py-24 px-6" [class.odd]="odd">
-        <div class="max-w-[80%] mx-auto w-full">
+    <section class="service-section py-12 sm:py-16 lg:py-24 px-4 sm:px-6" [class.odd]="odd">
+        <div class="max-w-[95%] sm:max-w-[90%] lg:max-w-[80%] mx-auto w-full">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center" [class.lg:grid-flow-dense]="odd">
                 
                 <!-- Content Side -->
@@ -55,7 +55,7 @@
                             @for (feature of service.features; track feature; let fi = $index) {
                                 <div class="feature-item" [style.animation-delay]="(fi * 0.05) + 's'">
                                     <div class="feature-marker"></div>
-                                    <span>{{ feature }}</span>
+                                    <base-text variant="text" [text]="feature" classes="text-tertiary" />
                                 </div>
                             }
                         </div>

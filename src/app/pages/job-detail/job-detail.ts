@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Job, JobTag } from '@utils/interfaces';
 import { getJobById } from '../../data/jobs.data';
-import { Modal, Ul, Dot } from '@shared';
+import { Modal, Ul, Dot, Text } from '@shared';
 import { EmailTemplate } from '../../components/join-us/email-template/email-template';
 
 @Component({
     selector: 'app-job-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule, Modal, EmailTemplate, Ul, Dot],
+    imports: [CommonModule, RouterModule, Modal, EmailTemplate, Ul, Dot, Text],
     templateUrl: './job-detail.html',
 })
 export class JobDetail implements OnInit {

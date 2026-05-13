@@ -1,39 +1,35 @@
 <section class="min-h-screen bg-[color:var(--color-bg)] text-secondary py-12">
-  <div class="flex max-w-full flex-col gap-16 lg:flex-row lg:justify-between lg:items-center">
+  <div class="flex max-w-full flex-col gap-8 lg:gap-16 lg:flex-row lg:justify-between lg:items-center">
     <div class="flex-1 space-y-6 max-w-2xl">
       <div class="flex items-center gap-3 uppercase tracking-[0.4em] text-xs font-medium text-secondary">
         <base-dot />
         <span>Vision</span>
       </div>
 
-      <base-text variant="h1" text="Agent-Native Software Development" classes="text-secondary sm:text-5xl lg:text-6xl" />
+      <base-text variant="h1" text="Agent-Native Software Development" classes="text-secondary lg:text-5xl xl:text-6xl mb-4" />
 
-      <p class="text-lg text-tertiary">
-        The only software development agents that work everywhere you do.
-      </p>
+      <base-text variant="text" text="The only software development agents that work everywhere you do." classes="text-tertiary sm:text-lg" />
 
-      <p class="text-base text-tertiary">
-        From IDE to CI/CD - delegate complete tasks like refactors, incident response, and migrations to Droids without changing your tools, models, or workflow.
-      </p>
+      <base-text variant="text" text="From IDE to CI/CD - delegate complete tasks like refactors, incident response, and migrations to Droids without changing your tools, models, or workflow." classes="text-tertiary" />
 
-      <div class="flex flex-wrap gap-3">
-        <button class="rounded-full border border-secondary/40 px-6 py-2 text-sm font-medium uppercase tracking-wide transition hover:border-secondary">
+      <div class="flex gap-2 sm:gap-3 my-4">
+        <button class="rounded-full border border-secondary/40 px-3 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-wide transition hover:border-secondary whitespace-nowrap">
           Get the CLI
         </button>
-        <button class="rounded-full border border-secondary/10 bg-secondary/10 px-6 py-2 text-sm font-medium uppercase tracking-wide transition hover:bg-secondary/20">
+        <button class="rounded-full border border-secondary/10 bg-secondary/10 px-3 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium uppercase tracking-wide transition hover:bg-secondary/20 whitespace-nowrap">
           Explore agents
         </button>
       </div>
 
       <div class="pt-4">
         <base-terminal
-          command="curl -fsSL https://app.factory.ai/cli | sh"
+          command="curl -fsSL https://app.protovoid.com/cli | sh"
           [platforms]="['MACOS / LINUX']"
           [showComingSoon]="true" />
       </div>
     </div>
 
-    <div class="flex-1 flex justify-end">
+    <div class="flex-1 flex justify-center lg:justify-end">
       @if (isBrowser) {
         <om-orb></om-orb>
       }

@@ -15,6 +15,6 @@ import { CommonModule } from '@angular/common';
   `,
 })
 export class Container {
-  @Input() padding: string = 'p-8';
+  @Input() padding: string = 'p-4 sm:p-6 md:p-8';
   @Input() classes: string = '';
 }

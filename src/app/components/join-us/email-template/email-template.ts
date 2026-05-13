@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Text } from '@shared';
 
 @Component({
     selector: 'app-email-template',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, Text],
     templateUrl: './email-template.html',
 })
 export class EmailTemplate {

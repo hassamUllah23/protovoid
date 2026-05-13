@@ -58,26 +58,36 @@ import { filter, Subscription } from 'rxjs';
     .logo-char:nth-child(7) span { transition-delay: 180ms; }
     .logo-char:nth-child(8) span { transition-delay: 210ms; }
     .logo-char:nth-child(9) span { transition-delay: 240ms; }
+
+    .mobile-menu {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 500px;
+      opacity: 1;
+    }
   `,
 })
 export class Navigation implements OnInit, OnDestroy {
   private themeService = inject(ThemeService);
   private router = inject(Router);
   private routerSub?: Subscription;
-  
+
   items: NavItem[] = [];
   hoveredIndex: number | null = null;
   isDarkMode = this.themeService.isDarkMode;
   companyName = 'PROTOVOID'.split('');
   logoAnimating = signal(false);
+  isMobileMenuOpen = signal(false);
 
   constructor() {
     this.items = [
-      // { url: '/', label: 'Home' },
-
       { url: '/services', label: 'Services' },
       { url: '/projects', label: 'Projects' },
-      // { url: '/contact', label: 'Contact' },
       { url: '/pricing', label: 'Pricing' },
       { url: '/company', label: 'Company' },
       { url: '/careers', label: 'Careers' },
@@ -86,11 +96,12 @@ export class Navigation implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.triggerLogoAnimation();
-    
+
     this.routerSub = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.triggerLogoAnimation();
+        this.isMobileMenuOpen.set(false);
       });
   }
 
@@ -122,5 +133,9 @@ export class Navigation implements OnInit, OnDestroy {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen.update(v => !v);
   }
 }

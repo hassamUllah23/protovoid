@@ -1,13 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Dot, ImageFullscreen } from '@shared';
+import { Dot, ImageFullscreen, Text } from '@shared';
 import { PROJECTS, Project } from '../../data/projects.data';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, Dot, ImageFullscreen],
+  imports: [CommonModule, RouterLink, Dot, ImageFullscreen, Text],
   templateUrl: './project-detail.html',
   styleUrl: './project-detail.css'
 })

@@ -5,23 +5,23 @@ export const NEWS: NewsItem[] = [
         id: 'ey-redefining-enterprise-development',
         tag: 'COMPANY',
         isNew: true,
-        heading: 'Engineering for an Agent-First Era: How EY is Redefining Enterprise Development with Factory',
-        description: 'EY is rolling out agent-native development across its global engineering organization with Factory, deploying Droids to more than 5,000 engineers in...',
+        heading: 'Engineering for an Agent-First Era: How EY is Redefining Enterprise Development with Protovoid',
+        description: 'EY is rolling out agent-native development across its global engineering organization with Protovoid, deploying Droids to more than 5,000 engineers in...',
         date: 'March 4, 2025',
         readTime: '2 minute read',
         content: [
             {
                 title: 'Scaling execution inside existing engineering workflows',
                 paragraphs: [
-                    'EY is rolling out agent-native development across its global engineering organization. Over the past six months, EY has deployed Factory\'s software development agents to more than 5,000 engineers, making this one of the largest enterprise deployments of software development agents in production today.',
+                    'EY is rolling out agent-native development across its global engineering organization. Over the past six months, EY has deployed Protovoid\'s software development agents to more than 5,000 engineers, making this one of the largest enterprise deployments of software development agents in production today.',
                     'This rollout reflects a shift in how engineering work is carried out inside enterprises. Rather than using AI as a lightweight assistive layer, EY has embedded Droids across its software development lifecycle, allowing parts of engineering workflows to be delegated while still meeting enterprise requirements for quality and security.',
-                    'For agents to operate in production and daily workflows, they must operate inside the systems engineers already rely on. At EY, Droids run directly within existing development environments, including GitHub, Jira, Slack, and internal DevOps tooling. This allowed Factory to quickly take on execution-heavy work such as refactoring, code changes, and documentation updates across large repositories.'
+                    'For agents to operate in production and daily workflows, they must operate inside the systems engineers already rely on. At EY, Droids run directly within existing development environments, including GitHub, Jira, Slack, and internal DevOps tooling. This allowed Protovoid to quickly take on execution-heavy work such as refactoring, code changes, and documentation updates across large repositories.'
                 ]
             },
             {
                 title: 'Teaching agents enterprise memory',
                 paragraphs: [
-                    'Enterprise codebases carry years of context that agents need to understand. Factory\'s approach involves building institutional memory into agents, allowing them to learn from existing patterns, conventions, and architectural decisions.',
+                    'Enterprise codebases carry years of context that agents need to understand. Protovoid\'s approach involves building institutional memory into agents, allowing them to learn from existing patterns, conventions, and architectural decisions.',
                     'This contextual understanding enables agents to generate code that feels native to each codebase, rather than generic solutions that require extensive modification.'
                 ]
             },
@@ -45,7 +45,7 @@ export const NEWS: NewsItem[] = [
         id: 'ey-deploys-agent-native-development',
         tag: 'CASE STUDY',
         isNew: true,
-        heading: 'EY deploys agent-native development to 5,000+ engineers globally with Factory',
+        heading: 'EY deploys agent-native development to 5,000+ engineers globally with Protovoid',
         description: 'At enterprise scale, engineering work takes place in long-lived, interconnected codebases shaped by years of development. EY needed a...',
         date: 'February 28, 2025',
         readTime: '5 minute read',
@@ -54,38 +54,38 @@ export const NEWS: NewsItem[] = [
                 title: 'The enterprise challenge',
                 paragraphs: [
                     'At enterprise scale, engineering work takes place in long-lived, interconnected codebases shaped by years of development. EY needed a solution that could understand this complexity while integrating seamlessly with existing workflows.',
-                    'Traditional AI coding assistants fell short because they lacked the contextual understanding required for enterprise codebases. Factory\'s approach was different.'
+                    'Traditional AI coding assistants fell short because they lacked the contextual understanding required for enterprise codebases. Protovoid\'s approach was different.'
                 ]
             },
             {
                 title: 'Implementation approach',
                 paragraphs: [
-                    'Factory worked closely with EY\'s engineering leadership to design a rollout strategy that minimized disruption while maximizing adoption.',
+                    'Protovoid worked closely with EY\'s engineering leadership to design a rollout strategy that minimized disruption while maximizing adoption.',
                     'The integration touched every part of the development lifecycle, from initial planning in Jira to code review in GitHub to deployment through CI/CD pipelines.'
                 ]
             },
             {
                 title: 'Results and impact',
                 paragraphs: [
-                    'Within six months, over 5,000 engineers were actively using Factory\'s Droids in their daily workflows. The impact was measurable across key engineering metrics.',
+                    'Within six months, over 5,000 engineers were actively using Protovoid\'s Droids in their daily workflows. The impact was measurable across key engineering metrics.',
                     'Teams reported faster time-to-completion for routine tasks, improved code consistency, and more time available for complex problem-solving.'
                 ]
             }
         ]
     },
     {
-        id: 'factory-expands-to-london',
+        id: 'protovoid-expands-to-london',
         tag: 'COMPANY',
         isNew: true,
-        heading: 'Factory Expands to London',
-        description: 'Factory is opening an office in London as part of our global go-to-market expansion.',
+        heading: 'Protovoid Expands to London',
+        description: 'Protovoid is opening an office in London as part of our global go-to-market expansion.',
         date: 'February 15, 2025',
         readTime: '3 minute read',
         content: [
             {
                 title: 'Global expansion',
                 paragraphs: [
-                    'Factory is excited to announce the opening of our London office, marking a significant milestone in our global expansion strategy.',
+                    'Protovoid is excited to announce the opening of our London office, marking a significant milestone in our global expansion strategy.',
                     'This new presence in Europe will allow us to better serve our growing customer base across EMEA and strengthen our partnerships with enterprise clients.'
                 ]
             },
@@ -122,9 +122,9 @@ export const NEWS: NewsItem[] = [
                 ]
             },
             {
-                title: 'Factory\'s approach',
+                title: 'Protovoid\'s approach',
                 paragraphs: [
-                    'Factory\'s Droids maintain context across sessions, understanding not just the current task but the broader project history and codebase patterns.',
+                    'Protovoid\'s Droids maintain context across sessions, understanding not just the current task but the broader project history and codebase patterns.',
                     'This persistent memory allowed Josh to work on complex package updates across hundreds of files over two weeks, all within a single logical session.'
                 ]
             },

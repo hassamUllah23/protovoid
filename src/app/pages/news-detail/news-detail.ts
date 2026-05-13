@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NewsItem } from '@utils/interfaces';
 import { getNewsById } from '../../data/news.data';
-import { DottedContainer } from '@shared';
+import { DottedContainer, Text } from '@shared';
 
 @Component({
     selector: 'app-news-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule, DottedContainer],
+    imports: [CommonModule, RouterModule, DottedContainer, Text],
     templateUrl: './news-detail.html',
 })
 export class NewsDetail implements OnInit {

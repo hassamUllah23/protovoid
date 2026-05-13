@@ -1,8 +1,8 @@
-<nav class="sticky top-0 z-50 bg-[color:var(--color-bg)] py-4 -mx-6 px-6 -mt-4">
+<nav class="sticky top-0 z-50 bg-[color:var(--color-bg)] py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 -mt-4">
   <div class="flex justify-between items-center">
     <a routerLink="/" [class]="'logo-text cursor-pointer flex items-center gap-2 ' + (logoAnimating() ? 'animating' : '')">
       <img src="/assets/logo.png" alt="Protovoid Logo" class="w-6 h-6" />
-      <span class=" text-secondary text-lg font-medium uppercase tracking-wider flex">
+      <span class="text-secondary text-lg font-medium uppercase tracking-wider flex">
         @for (char of companyName; track $index) {
           <span class="logo-char">
             <span>{{ char }}</span>
@@ -11,7 +11,9 @@
         }
       </span>
     </a>
-    <div class="flex gap-8 items-center">
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex gap-8 items-center">
       @for (item of items; track $index) {
         <div
           [class]="getNavItemClasses($index)"
@@ -20,8 +22,8 @@
           <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase"/>
         </div>
       }
-      <a 
-        routerLink="/contact" 
+      <a
+        routerLink="/contact"
         class="inline-flex items-center justify-center px-3 py-1.5 text-sm font-normal leading-none rounded-lg transition-all duration-200 uppercase tracking-tight bg-[color:var(--color-bg)] text-secondary border border-secondary/30 hover:border-secondary/50"
       >
         Contact Sales
@@ -38,6 +40,51 @@
         }
       </base-icon-button>
     </div>
+
+    <!-- Mobile controls -->
+    <div class="flex lg:hidden items-center gap-3">
+      <base-icon-button
+        (clicked)="toggleTheme()"
+        size="sm"
+        variant="ghost"
+        [ariaLabel]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+        @if (isDarkMode()) {
+          <ng-icon name="octMoon" class="w-4 h-4" />
+        } @else {
+          <ng-icon name="octSun" class="w-4 h-4" />
+        }
+      </base-icon-button>
+      <button
+        (click)="toggleMobileMenu()"
+        class="p-2 text-secondary"
+        [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'">
+        @if (isMobileMenuOpen()) {
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        } @else {
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        }
+      </button>
+    </div>
   </div>
+
   <base-separator />
+
+  <!-- Mobile menu -->
+  <div [class]="'lg:hidden mobile-menu' + (isMobileMenuOpen() ? ' open' : '')">
+    <div class="pt-4 pb-2 flex flex-col gap-1">
+      @for (item of items; track $index) {
+        <app-nav-item [url]="item.url" [label]="item.label" classes="uppercase block py-2" />
+      }
+      <a
+        routerLink="/contact"
+        class="mt-3 inline-flex items-center justify-center px-3 py-2 text-sm font-normal leading-none rounded-lg transition-all duration-200 uppercase tracking-tight bg-[color:var(--color-bg)] text-secondary border border-secondary/30 hover:border-secondary/50 w-full"
+      >
+        Contact Sales
+      </a>
+    </div>
+  </div>
 </nav>

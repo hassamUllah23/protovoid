@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { JobTag } from '@utils/interfaces';
+import { Select } from '@shared';
+import { SelectOption } from '@shared/components/select/select';
 
 interface FilterOption {
     label: string;
@@ -11,7 +13,7 @@ interface FilterOption {
 @Component({
     selector: 'app-job-filter',
     standalone: true,
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, Select],
     templateUrl: './job-filter.html',
 })
 export class JobFilter {
@@ -35,9 +37,13 @@ export class JobFilter {
         this.filterChange.emit(value);
     }
 
+    get locationOptions(): SelectOption[] {
+        return this.locations.map(l => ({ value: l, label: l }));
+    }
+
     onLocationChange(event: Event): void {
         const target = event.target as HTMLSelectElement;
-        this.locationChange.emit(target.value);
+        this.locationChange.emit(target.value || 'all');
     }
 
     getFilterButtonClasses(value: string): string {

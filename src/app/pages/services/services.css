@@ -145,8 +145,14 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .feature-item {
@@ -196,8 +202,8 @@
 }
 
 .tech-tag {
-    padding: 0.5rem 1rem;
-    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-secondary);
@@ -205,6 +211,13 @@
     border: 1px solid rgba(var(--color-tertiary-rgb), 0.15);
     border-radius: 6px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+    .tech-tag {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
 }
 
 .tech-tag:hover {

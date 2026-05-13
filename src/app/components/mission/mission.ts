@@ -14,7 +14,7 @@ interface Value {
     templateUrl: './mission.html',
 })
 export class Mission {
-    missionStatement = 'At Factory, our mission is to Bring Autonomy to Software Engineering. In order to accomplish our ambitious goal, we must:';
+    missionStatement = 'At Protovoid, our mission is to Bring Autonomy to Software Engineering. In order to accomplish our ambitious goal, we must:';
     
     values: Value[] = [
         { number: '01', text: 'Champion the mission' },

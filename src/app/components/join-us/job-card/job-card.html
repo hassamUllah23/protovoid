@@ -1,24 +1,30 @@
-<div class="flex items-center justify-between py-4 border-b border-tertiary/20 hover:bg-secondary/5 transition-colors duration-200 group">
-    <div class="flex items-center gap-6">
-        <div class="flex gap-1.5 min-w-[120px]">
-            @for (tag of job.tags; track tag) {
-                <span [class]="getTagClasses()">{{ tag }}</span>
-            }
+<div class="py-4 sm:py-4 border-b border-tertiary/20 hover:bg-secondary/5 transition-colors duration-200 group">
+    <!-- Mobile: stacked layout -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 sm:min-w-[120px]">
+                @for (tag of job.tags; track tag) {
+                    <span [class]="getTagClasses()">{{ tag }}</span>
+                }
+            </div>
+
+            <!-- Title + location -->
+            <div class="flex flex-col gap-0.5">
+                <span class="text-secondary text-sm sm:text-base font-medium">{{ job.title }}</span>
+                <span class="text-tertiary text-xs sm:text-sm">{{ job.location }} · {{ formatType(job.type) }}</span>
+            </div>
         </div>
-        
-        <div class="flex flex-col gap-0.5">
-            <span class="text-secondary font-medium">{{ job.title }}</span>
-            <span class="text-tertiary text-sm">{{ job.location }} - {{ formatType(job.type) }}</span>
-        </div>
+
+        <!-- Apply button: full-width on mobile, auto on desktop -->
+        <a
+            [routerLink]="['/careers', job.id]"
+            class="flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto px-4 py-2 text-xs font-medium uppercase tracking-wide text-secondary bg-secondary/10 border border-secondary/20 rounded hover:bg-secondary hover:text-[color:var(--color-bg)] transition-all duration-200"
+        >
+            Apply
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
     </div>
-    
-    <a 
-        [routerLink]="['/careers', job.id]"
-        class="flex items-center gap-2 px-4 py-2 text-xs font-medium uppercase tracking-wide text-secondary bg-secondary/10 border border-secondary/20 rounded hover:bg-secondary hover:text-[color:var(--color-bg)] transition-all duration-200"
-    >
-        Apply
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-    </a>
 </div>
